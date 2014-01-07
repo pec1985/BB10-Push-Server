@@ -1,0 +1,31 @@
+{
+  "name": "BlackBerryPush",
+  "version": "1.0.0",
+  "description": "",
+  "framework": "mvc",
+  "bodyParser": true,
+  "main": "app.js",
+  "logfile" : "BlackBerryPush.log",
+  "keywords": [
+  ],
+  "author": "",
+  "maintainers": [
+  ],
+  "contributors": [
+  ],
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "preferGlobal": false,
+  "dependencies": {
+    "xml2js": "0.2.x",
+    "node-bb10": "1.0.2"
+  },
+  "license":"",
+  "private": true,
+  "engines": {
+    "node": ">=0.8.26"
+  }
+
+}

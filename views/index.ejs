@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <script type="text/javascript">
+
+    window.onload = function() {
+      var alertDialog = document.getElementById('alert_dialog');
+      alertDialog.style.display = 'none';
+      var btn = document.getElementById('myButton');
+      btn.addEventListener('click', function(){
+        alertDialog.style.display = 'none';
+        var appId = document.getElementById('appId').value;
+        var pushId = document.getElementById('pushId').value;
+        var pushPassowrd = document.getElementById('pushPassowrd').value;
+        var cdip = document.getElementById('cdip').value;
+        var recipients = document.getElementById('recipients').value;
+        var message = document.getElementById('message').value;
+        var recipients = document.getElementById('recipients').value;
+
+        var xmlhttp = new XMLHttpRequest();
+
+        xmlhttp.onreadystatechange = function() {
+          if (xmlhttp.readyState == 4) {
+            alertDialog.innerHTML = this.responseText;
+            alertDialog.style.display = 'block';
+          }
+        }
+        xmlhttp.open("POST", "/push", true);
+        xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xmlhttp.send(JSON.stringify({
+          appId: appId,
+          pushId: pushId,
+          pushPassowrd: pushPassowrd,
+          cdip: cdip,
+          recipients: recipients,
+          message: message,
+          recipients: recipients
+        }));
+
+      });
+    }
+
+  </script>
+  <body>
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-2">
+      </div>
+
+      <div class="col-md-8">
+        <div class="page-header">
+          <h1 class="text-center">BlackBerry 10 Push test page</h1>
+        </div>
+        <div class="alert alert-success alert-dismissable text-center" id="alert_dialog"> </div>
+      </div>
+
+      <div class="col-md-2">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+      </div>
+
+      <div class="col-md-4">
+        <div role="form" id="btn">
+          <div class="form-group">
+            <label for="appId">App ID</label>
+            <input type="text" class="form-control" id="appId" placeholder="App Id">
+          </div>
+          <div class="form-group">
+            <label for="pushId">Push ID</label>
+            <input type="text" class="form-control" id="pushId" placeholder="Push Id">
+          </div>
+          <div class="form-group">
+            <label for="pushPassowrd">Push Password</label>
+            <input type="text" class="form-control" id="pushPassowrd" placeholder="Push Password">
+          </div>
+          <div class="form-group">
+            <label for="cdip">CDIP</label>
+            <input type="text" class="form-control" id="cdip" placeholder="CDIP">
+          </div>
+
+          <div class="form-group">
+            <label for="recipients">Add Recipients, comma separated</label>
+            <input type="text" class="form-control" id="recipients" placeholder="Add Recipients, comma separated">
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <input type="text" class="form-control" id="message" placeholder="Message" value="Hello World!">
+          </div>
+          <button class="btn btn-default" id="myButton">Submit</button>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-2">
+      </div>
+
+      <div class="col-md-8">
+        <div class="page-header">
+          <p class="text-center">Built with Appcelerator - Node.ACS</h1>
+        </div>
+      </div>
+
+      <div class="col-md-2">
+      </div>
+    </div>
+
+  </body>
+</html>
