@@ -39,12 +39,12 @@ function onPush(req, res) {
 	if(!obj.recipients) {
 		fail = true;
 		code = 500;
-		message = 'needs appId';
+		message = 'needs recipients';
 	}
 	if(!obj.message) {
 		fail = true;
 		code = 500;
-		message = 'needs appId';
+		message = 'needs message';
 	}
 
 	res.writeHead(code, {"Content-Type": "text/plain"});
