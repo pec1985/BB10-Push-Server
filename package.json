@@ -20,7 +20,7 @@
   "preferGlobal": false,
   "dependencies": {
     "xml2js": "0.2.x",
-    "node-bb10": "1.0.2"
+    "node-bb10": "https://github.com/pec1985/BB10-Push-Server.git"
   },
   "license":"",
   "private": true,
